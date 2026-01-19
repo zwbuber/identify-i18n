@@ -16,6 +16,8 @@ export default {
       },
       fontFamily: {
         'outfit': ['Outfit', 'sans-serif'],
+        'inter': ['Inter', 'sans-serif'],
+        'sf-pro': ['-apple-system', 'BlinkMacSystemFont', '"SF Pro Text"', '"SF Pro Display"', 'sans-serif'],
       },
       borderRadius: {
         'lg': '16px',

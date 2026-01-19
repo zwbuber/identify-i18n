@@ -66,6 +66,13 @@ const App: React.FC = () => {
                 });
             } catch (error) {
                 console.error("Failed to fetch identification data:", error);
+
+                setData({
+                    status: 'failed',
+                    expert: 'Unknown',
+                    number: `CN${id}`,
+                    publishDate: '2025-11-03 11:43:06',
+                });
             } finally {
                 setLoading(false);
             }
@@ -104,7 +111,7 @@ const App: React.FC = () => {
                 <div className="relative w-full aspect-[750/868] bg-[url('/assets/background.png')] bg-contain bg-center bg-no-repeat flex flex-col pt-[1.20rem] pb-[0.4rem] px-[0.57rem]">
                     {/* Title */}
                     <div className="mb-[0.67rem] text-center">
-                        <h1 className="font-['Inter'] text-[0.40rem] font-black italic text-[#26273a] uppercase tracking-wide leading-none">
+                        <h1 className="font-inter text-[0.40rem] font-black italic text-[#26273a] uppercase tracking-wide leading-none">
                             Результат проверки
                         </h1>
                     </div>
@@ -155,7 +162,7 @@ const App: React.FC = () => {
                             </div>
                             <div className="flex justify-between items-baseline text-[0.28rem]">
                                 <span className="text-[#26273A] text-[0.24rem]">Номер проверки</span>
-                                <span className="text-[#0F1113] font-bold font-['Outfit']">{data.number}</span>
+                                <span className="text-[#0F1113] font-bold font-outfit">{data.number}</span>
                             </div>
                         </div>
                     </div>
@@ -165,8 +172,8 @@ const App: React.FC = () => {
 
                     {/* Date */}
                     <div className="text-center mb-[0.36rem]">
-                        <div className="text-[#9ea3ae] text-[0.24rem] mb-[0.16rem] font-['SF Pro']">Дата публикации</div>
-                        <div className="text-[#1a1a1x] text-[0.36rem] font-bold font-['Inter']">{data.publishDate}</div>
+                        <div className="text-[#9ea3ae] text-[0.24rem] mb-[0.16rem] font-sf-pro">Дата публикации</div>
+                        <div className="text-[#1a1a1x] text-[0.36rem] font-bold font-inter">{data.publishDate}</div>
                     </div>
 
                     {/* Photos */}
@@ -182,7 +189,7 @@ const App: React.FC = () => {
 
                 {/* Disclaimer */}
                 <div className="bg-[#fafafa] py-[0.3rem] px-[0.24rem]">
-                    <h4 className="text-[0.22rem] font-bold text-[#888891] text-center mb-[0.34rem] font-['SF Pro'] uppercase">Об отказе от ответственности</h4>
+                    <h4 className="text-[0.22rem] font-bold text-[#888891] text-center mb-[0.34rem] font-sf-pro uppercase">Об отказе от ответственности</h4>
                     <p className="text-[0.22rem] text-[#ACACB7] leading-[1.5]">
                         Данное заключение основано исключительно на фотографиях товара, предоставленных пользователем, и на текущих стандартах проверки. Из-за угла съёмки, освещения и других факторов возможны расхождения с фактическим состоянием изделия; вывод носит справочный характер — ориентируйтесь на реальный предмет.
                         Эксперт также не несёт ответственности за подлинность происхождения товара и возможные следы его восстановления. Рекомендуем пользователю учитывать дополнительную информацию при окончательной оценке.
