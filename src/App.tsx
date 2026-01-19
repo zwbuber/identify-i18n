@@ -119,35 +119,37 @@ const App: React.FC = () => {
                     {/* Status & Info */}
                     <div className="flex-1 flex flex-col relative w-full">
                         {/* Status Box */}
-                        <div className={`flex items-center mx-[0.08rem] p-[0.24rem] rounded-[0.16rem] gap-[0.2rem] ${isPass ? 'bg-[#EAFDF5] text-[#00B050]' : 'bg-[#FFF5F5] text-[#FF4D4F]'}`}>
-                            <div className={`w-[0.64rem] h-[0.64rem] flex items-center justify-center rounded-full shrink-0 ${isPass ? 'bg-[#00B050]' : 'bg-[#FF4D4F]'} text-white`}>
-                                {isPass ? (
-                                    <svg className="w-[0.40rem] h-[0.40rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                                        <polyline points="20 6 9 17 4 12" />
-                                    </svg>
-                                ) : (
-                                    <svg className="w-[0.40rem] h-[0.40rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
-                                        <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-                                    </svg>
-                                )}
+                        <div className={`flex items-center mx-[0.08rem] py-[0.3rem] px-[0.1rem] rounded-[0.1rem] gap-[0.04rem] ${isPass ? 'bg-[#EAFDF5] text-[#00B050]' : 'bg-[#FFF5F5] text-[#FF4D4F]'}`}>
+                            <div className='w-[0.76rem] h-[0.76rem] flex items-center justify-center'>
+                                <div className={`w-[0.64rem] h-[0.64rem] flex items-center justify-center rounded-full shrink-0 ${isPass ? 'bg-[#00B050]' : 'bg-[#FF4D4F]'} text-white`}>
+                                    {isPass ? (
+                                        <svg className="w-[0.40rem] h-[0.40rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                            <polyline points="20 6 9 17 4 12" />
+                                        </svg>
+                                    ) : (
+                                        <svg className="w-[0.40rem] h-[0.40rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round">
+                                            <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
+                                        </svg>
+                                    )}
+                                </div>
                             </div>
-                            <div className="text-[0.36rem] font-bold leading-tight flex-1">
+                            <div className="text-[0.36rem] font-bold flex-1 font-sf-pro">
                                 {isPass ? "Изделие соответствует признакам оригинала" : "Признаков подлинности не выявлено"}
                             </div>
 
                             {/* Stamp */}
-                            <div className="absolute top-[0.6rem] right-[0.2rem] pointer-events-none z-10">
+                            <div className="absolute top-[1.0rem] right-[0.2rem] opacity-40 pointer-events-none z-10">
                                 <img
                                     src={isPass ? "/assets/pass.png" : "/assets/failed.png"}
-                                    className="w-[1.8rem] h-auto object-contain opacity-90"
+                                    className="w-[1.92rem] h-auto object-contain opacity-90"
                                     alt={isPass ? "Passed" : "Failed"}
                                 />
                             </div>
                         </div>
 
                         {/* Statement Text */}
-                        <div className="text-center px-[0.2rem] mb-[0.75rem] mt-[0.57rem] ">
-                            <p className="text-[#9ea3ae] text-[0.28rem] leading-relaxed scale-90 origin-center">
+                        <div className="text-center px-[0.2rem] mb-[0.76rem] mt-[0.57rem] ">
+                            <p className="text-[#9ea3ae] text-[0.28rem] leading-[0.38rem] scale-90 origin-center">
                                 Заключение вынесено на<br />
                                 основепредоставленных пользователем<br />
                                 фотографий
