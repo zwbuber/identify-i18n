@@ -216,7 +216,7 @@ const App: React.FC = () => {
             <footer data-html2canvas-ignore className="fixed bottom-0 left-0 right-0 p-[0.32rem] bg-gradient-to-t from-white via-white to-transparent">
                 <button
                     onClick={handleDownload}
-                    className="w-full h-[1.08rem] bg-white border border-[#29cc85] text-[#29cc85] rounded-full text-[0.34rem] font-bold shadow-[0_4px_12px_rgba(41,204,133,0.15)] active:scale-[0.98] transition-transform"
+                    className="w-full h-[0.88rem] bg-white border border-[#06D290] text-[#06D290] rounded-4rem text-[0.34rem] font-bold shadow-[0_4px_12px_rgba(41,204,133,0.15)] active:scale-[0.98] transition-transform"
                 >
                     Скачать отчет об аутентификации
                 </button>
