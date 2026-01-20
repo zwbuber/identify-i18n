@@ -4,6 +4,9 @@ import QRCode from "react-qr-code";
 import { fromCode, timestampToDate } from "./utils";
 import md5 from "./utils/md5";
 
+import passImage from "/assets/pass.png";
+import failedImage from "/assets/failed.png";
+
 type ResultStatus = "finish" | "fail" | "fake" | "loading";
 
 interface ResultImage {
@@ -95,12 +98,10 @@ const App: React.FC = () => {
 
         const result = await response.json();
 
-        console.log(result);
-
         if (result.success) {
           setData(result.data);
         } else {
-          console.log(result.msg);
+          alert(result.msg || "Ошибка при получении данных");
         }
       } catch (error) {
         console.error("Failed to fetch identification data:", error);
@@ -202,7 +203,7 @@ const App: React.FC = () => {
               {/* Stamp */}
               <div className="absolute top-[1.0rem] right-[0.2rem] opacity-40 pointer-events-none z-10">
                 <img
-                  src={isPass ? "/assets/pass.png" : "/assets/failed.png"}
+                  src={isPass ? passImage : failedImage}
                   className="w-[1.92rem] h-auto object-contain opacity-90"
                   alt={isPass ? "Passed" : "Failed"}
                 />
@@ -247,7 +248,7 @@ const App: React.FC = () => {
               <div
                 key={item.id}
                 className="w-[3.45rem] h-[3.45rem] aspect-square bg-[#F2F2F2] rounded-[0.04rem] flex items-center justify-center text-[#d1d5db]">
-                <img src={item.image} alt="" />
+                <img className="w-[3.45rem] h-[3.45rem]" src={item.image} alt="" />
               </div>
             ))}
           </div>
