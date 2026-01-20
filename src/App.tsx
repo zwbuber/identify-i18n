@@ -1,9 +1,10 @@
 import React, { useState, useEffect, useRef } from "react";
 import html2canvas from "html2canvas";
+import QRCode from "react-qr-code";
 import { fromCode, timestampToDate } from "./utils";
 import md5 from "./utils/md5";
 
-type ResultStatus = "finish" | "fail" | 'fake' | "loading";
+type ResultStatus = "finish" | "fail" | "fake" | "loading";
 
 interface ResultImage {
   gmtCreate: number;
@@ -105,7 +106,7 @@ const App: React.FC = () => {
         console.error("Failed to fetch identification data:", error);
 
         setData({
-          status: "failed",
+          status: "fail",
           appraiserName: "Unknown",
           id: id,
           imageList: [],
@@ -237,7 +238,7 @@ const App: React.FC = () => {
           {/* Date */}
           <div className="text-center mb-[0.36rem]">
             <div className="text-[#9ea3ae] text-[0.24rem] mb-[0.16rem] font-sf-pro">Дата публикации</div>
-            <div className="text-[#1a1a1x] text-[0.36rem] font-bold font-inter">{timestampToDate(data.gmtCreate)}</div>
+            <div className="text-[#1a1a1x] text-[0.28rem] font-bold font-inter">{timestampToDate(data.gmtCreate)}</div>
           </div>
 
           {/* Photos */}
@@ -267,17 +268,8 @@ const App: React.FC = () => {
 
         {/* QR Code */}
         <div className="flex justify-center">
-          <div className="bg-white w-[2.50rem] h-[2.5rem] p-[0.1rem] rounded-[0.1rem] shadow-sm">
-            <svg className="w-[2.30rem] h-[2.30rem]" viewBox="0 0 100 100">
-              <rect width="100" height="100" fill="white" />
-              <path d="M10,10 h30 v30 h-30 z M15,15 h20 v20 h-20 z M22,22 h6 v6 h-6 z" fill="#333" />
-              <path d="M60,10 h30 v30 h-30 z M65,15 h20 v20 h-20 z M72,22 h6 v6 h-6 z" fill="#333" />
-              <path d="M10,60 h30 v30 h-30 z M15,65 h20 v20 h-20 z M22,72 h6 v6 h-6 z" fill="#333" />
-              <path
-                d="M60,60 h10 v10 h-10 z M80,60 h10 v10 h-10 z M60,80 h10 v10 h-10 z M75,70 h15 v5 h-15 z M70,85 h20 v5 h-20 z"
-                fill="#333"
-              />
-            </svg>
+          <div className="bg-white p-[0.10rem] rounded-[0.1rem] shadow-sm">
+            <QRCode value={`http://192.168.0.151:5173/?id=${data.id}`} size={100} />
           </div>
         </div>
       </main>
